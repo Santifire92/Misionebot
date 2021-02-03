@@ -25,6 +25,11 @@ async def on_message(message):
             response = random.choice(bar_responses)
             await message.channel.send(response)
 
+    for keyword in laugh_triggers:
+        if keyword in message.content.lower():
+            response = random.choice(laugh_responses)
+            await message.channel.send(response)
+
 
 
 client.run("ODAzNDU5Njc4MDc0ODMwODU4.YA-GIg.yXyD-JW_owlaBCrc5A71enmoZlk")
