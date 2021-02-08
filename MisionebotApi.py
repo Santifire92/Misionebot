@@ -30,6 +30,13 @@ async def on_message(message):
             response = random.choice(laugh_responses)
             await message.channel.send(response)
 
+@bot.command(aliases=['paly', 'queue', 'que'])
+async def play(ctx):
+    guild = ctx.guild
+    voice_client: discord.VoiceClient = discord.utils.get(bot.voice_clients, guild=guild)
+    audio_source = discord.FFmpegPCMAudio('barras.mp3')
+    if not voice_client.is_playing():
+        voice_client.play(audio_source, after=None)
 
 
 client.run("ODAzNDU5Njc4MDc0ODMwODU4.YA-GIg.yXyD-JW_owlaBCrc5A71enmoZlk")
